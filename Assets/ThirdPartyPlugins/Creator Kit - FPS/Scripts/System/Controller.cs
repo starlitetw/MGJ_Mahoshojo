@@ -52,6 +52,11 @@ public class Controller : MonoBehaviour
 
     public bool Grounded => m_Grounded;
 
+    public int HP;
+    public bool[] Tags;
+    public int Attack;
+    public bool unbreakable;
+
     CharacterController m_CharacterController;
 
     bool m_Grounded;
@@ -265,7 +270,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    void ChangeWeapon(int number)
+    public void ChangeWeapon(int number)
     {
         if (m_CurrentWeapon != -1)
         {
@@ -314,5 +319,40 @@ public class Controller : MonoBehaviour
     public void PlayFootstep()
     {
         FootstepPlayer.PlayRandom();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Candy")
+        {
+            ChangeWeapon(1);
+            Destroy(other.gameObject);
+        }
+        if (other.name == "Apple")
+        {
+            HP += 30;
+            Destroy(other.gameObject);
+        }
+        if (other.name == "Potion")
+        {
+            HP = 30;
+            Destroy(other.gameObject);
+        }
+        if (other.name == "Axe")
+        {
+            Attack += 30;
+            Destroy(other.gameObject);
+        }
+        if (other.name == "Star")
+        {
+            unbreakable = true;
+            Invoke("Reset_Unbreakable", 10);
+            Destroy(other.gameObject);
+        }
+    }
+
+    public void Reset_Unbreakable()
+    {
+        unbreakable = false;
     }
 }
