@@ -9,6 +9,8 @@ TagManager:
   - ring
   - teleport
   - hat
+  - enemy
+  - bullet
   layers:
   - Default
   - TransparentFX
