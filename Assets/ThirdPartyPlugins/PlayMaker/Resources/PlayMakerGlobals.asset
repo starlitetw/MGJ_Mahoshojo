@@ -20,7 +20,19 @@ MonoBehaviour:
       showInInspector: 0
       networkSync: 0
       value: 10
-    intVariables: []
+    intVariables:
+    - useVariable: 1
+      name: TESTInt
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 0
+    - useVariable: 1
+      name: TeestInt
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 10
     boolVariables: []
     stringVariables: []
     vector2Variables: []
@@ -36,5 +48,5 @@ MonoBehaviour:
     enumVariables: []
     categories:
     - 
-    variableCategoryIDs: 00000000
+    variableCategoryIDs: 000000000000000000000000
   events: []
