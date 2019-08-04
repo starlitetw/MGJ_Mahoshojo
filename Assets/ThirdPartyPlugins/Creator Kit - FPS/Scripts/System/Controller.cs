@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -349,10 +350,28 @@ public class Controller : MonoBehaviour
             Invoke("Reset_Unbreakable", 10);
             Destroy(other.gameObject);
         }
+        if(other.tag == "bullet")
+        {
+            HP -= 5;
+            Destroy(other.gameObject);
+            if (HP <= 0)
+            {
+                GameOver();
+            }
+        }
     }
 
     public void Reset_Unbreakable()
     {
         unbreakable = false;
+    }
+
+    public void GameOver() 
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+    public void Win()
+    {
+        SceneManager.LoadScene("Win");
     }
 }
