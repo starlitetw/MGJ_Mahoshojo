@@ -21,13 +21,15 @@ public class BossResponse : MonoBehaviour
     public void BOSSHurt()
     {
         statu.HP--;
-        if (statu.HP >=0)
+        if (statu.HP <=0)
         {
             ani.SetTrigger("Dead");
         }
     }
     public void LaunchBullet()
     {
-        Instantiate(BulletObj, BulletPos);
+        GameObject Obj = Instantiate(BulletObj);
+        Obj.transform.position = BulletPos.position;
+
     }
 }
