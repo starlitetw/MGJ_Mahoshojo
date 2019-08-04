@@ -21,7 +21,7 @@ public class BossResponse : MonoBehaviour
     public void BOSSHurt()
     {
         statu.HP--;
-        if (statu.HP >=0)
+        if (statu.HP <= 0)
         {
             ani.SetTrigger("Dead");
         }

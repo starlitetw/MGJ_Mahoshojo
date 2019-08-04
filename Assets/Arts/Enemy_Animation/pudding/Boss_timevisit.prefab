@@ -40,7 +40,7 @@ BoxCollider:
   m_GameObject: {fileID: 3230093592827873960}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5287698885077459207}
   m_Layer: 0
   m_Name: Boss_timevisit
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,7 +174,7 @@ BoxCollider:
   m_GameObject: {fileID: 8627427101312043420}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4.61042, y: 9.19735, z: 0.2}
   m_Center: {x: -0.109893754, y: -0.025431925, z: 0}
@@ -731,7 +731,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101
-        actionIsOpen: 0001
+        actionIsOpen: 0101
         actionStartIndex: 0000000022000000
         actionHashCodes: 91500e0291d45a00
         unityObjectParams: []
