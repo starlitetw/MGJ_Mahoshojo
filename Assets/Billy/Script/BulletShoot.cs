@@ -8,7 +8,8 @@ public class BulletShoot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.localPosition = new Vector3(0 ,0, -Time.deltaTime * Speed);
+        //transform.localPosition = new Vector3(0 ,0, -Time.deltaTime * Speed);
+        //transform.Translate(Vector3.forward * Speed * Time.deltaTime);
     }
     private void OnCollisionEnter(Collision collision)
     {
