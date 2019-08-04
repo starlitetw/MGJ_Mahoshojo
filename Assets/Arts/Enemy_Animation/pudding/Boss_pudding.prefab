@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1184479139625419516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1108137541619385903}
+  - component: {fileID: 212520194377517949}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1108137541619385903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184479139625419516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.27, y: 3.06, z: 0.05}
+  m_LocalScale: {x: 2.3959186, y: 2.3959186, z: 2.3959186}
+  m_Children: []
+  m_Father: {fileID: 8627427101312043419}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &212520194377517949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184479139625419516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8627427101312043420
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +59,7 @@ GameObject:
   - component: {fileID: 8627427101312043423}
   - component: {fileID: 3589994297211595769}
   - component: {fileID: 5676439053943723493}
+  - component: {fileID: 7476606394415100058}
   m_Layer: 0
   m_Name: Boss_pudding
   m_TagString: Untagged
@@ -29,10 +74,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8627427101312043420}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 0.28654, y: 0.28654, z: 0.28654}
-  m_Children: []
+  m_Children:
+  - {fileID: 1108137541619385903}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -545,12 +591,14 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.DotweenShakeTransformTo
+        - HutongGames.PlayMaker.Actions.IntAdd
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 91500e02
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0001
+        actionStartIndex: 0000000022000000
+        actionHashCodes: 91500e02603dd905
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -659,6 +707,18 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
+        - useVariable: 1
+          name: HP
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 10
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: -1
         fsmBoolParams:
         - useVariable: 0
           name: 
@@ -741,12 +801,12 @@ MonoBehaviour:
         - 
         - 
         - 'Minimum Dotween version requirement: v1.1.310'
-        byteData: 00000000000000000000000000000000
+        byteData: 0000000000000000000000000000000000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1400000007000000100000000f000000130000001c0000000f0000000f0000000f0000000f0000000f0000001100000011000000070000001600000011000000100000001200000012000000110000001100000010000000070000001100000011000000110000000f00000007000000110000001100000011000000170000001700000003000000
+        paramDataType: 1400000007000000100000000f000000130000001c0000000f0000000f0000000f0000000f0000000f0000001100000011000000070000001600000011000000100000001200000012000000110000001100000010000000070000001100000011000000110000000f00000007000000110000001100000011000000170000001700000003000000100000001000000001000000
         paramName:
         - gameObject
         - dotweenTypeSelect
@@ -782,16 +842,34 @@ MonoBehaviour:
         - startEvent
         - finishEvent
         - descriptionArea
-        paramDataPos: 0000000000000000000000000000000000000000000000000100000002000000030000000400000005000000000000000100000004000000000000000200000001000000000000000100000003000000040000000200000008000000050000000600000007000000060000000c00000008000000090000000a000000000000000100000002000000
-        paramByteDataSize: 00000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000
+        - intVariable
+        - add
+        - everyFrame
+        paramDataPos: 0000000000000000000000000000000000000000000000000100000002000000030000000400000005000000000000000100000004000000000000000200000001000000000000000100000003000000040000000200000008000000050000000600000007000000060000000c00000008000000090000000a000000000000000100000002000000030000000400000010000000
+        paramByteDataSize: 00000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000001000000
     events:
     - name: NewHit
       isSystemEvent: 0
       isGlobal: 0
+    - name: FINISHED
+      isSystemEvent: 1
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
-      intVariables: []
+      intVariables:
+      - useVariable: 1
+        name: 
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      - useVariable: 1
+        name: HP
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 10
       boolVariables: []
       stringVariables: []
       vector2Variables: []
@@ -807,7 +885,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 
+      variableCategoryIDs: 0000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
@@ -1041,3 +1119,18 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
+--- !u!114 &7476606394415100058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627427101312043420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ccc67e5ad9cf84f816d5c6c9dc880d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  Damage: 0
+  MoveSpeed: 0
