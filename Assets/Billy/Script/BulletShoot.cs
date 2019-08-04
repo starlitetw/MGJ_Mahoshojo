@@ -8,16 +8,14 @@ public class BulletShoot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.localPosition = new Vector3(0 ,0, -gameObject.transform.position.z + (Time.deltaTime*Speed));
+        transform.localPosition = new Vector3(0 ,0, -Time.deltaTime * Speed);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
-        Debug.Log("CO");
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(gameObject);
-        Debug.Log("Tr");
+        if(collision.transform.tag == "player")
+        {
+            Destroy(gameObject);
+            Debug.Log("CO");
+        }
     }
 }

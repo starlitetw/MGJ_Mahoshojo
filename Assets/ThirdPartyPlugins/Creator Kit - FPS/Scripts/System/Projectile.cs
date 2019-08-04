@@ -36,14 +36,19 @@ public class Projectile : MonoBehaviour
         m_TimeSinceLaunch = 0.0f;
         m_Rigidbody.AddForce(direction * force);
     }
-    
+
+
     void OnCollisionEnter(Collision other)
     {
-        if (DestroyedOnHit)
+        if(other.transform.tag == "enemy")
         {
-            Destroy();
+            if (DestroyedOnHit)
+            {
+                Destroy();
+            }
         }
     }
+
 
     void Destroy()
     {
